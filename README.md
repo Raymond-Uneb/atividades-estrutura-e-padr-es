@@ -1,2 +1,2 @@
-# atividades-estrutura-e-padr-es
+# atividades-estrutura-e-padroes
 Respostas dos projetos
