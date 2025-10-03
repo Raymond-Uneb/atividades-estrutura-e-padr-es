@@ -1,18 +1,18 @@
 package RespostaAdapter;
 
-// Interface alvo
+// Interface selecionada
 interface ProcessadorPagamento {
     void processarPagamento(double valor);
 }
 
-// Sistema antigo que deve ser adaptado
+// Sistema antigo pra adaptação
 class SistemaPagamentoLegado {
     public void efetuarPagamento(String valor) {
-        System.out.println("Pagamento legado processado: R$" + valor);
+        System.out.println("Pagamento legado: R$" + valor);
     }
 }
 
-// ADAPTER - Conecta a interface moderna com o sistema legado
+// ADAPTER conectando a interface moderna com o sistema antigo
 class AdaptadorPagamento implements ProcessadorPagamento {
     private SistemaPagamentoLegado sistemaAntigo;
 
@@ -27,12 +27,12 @@ class AdaptadorPagamento implements ProcessadorPagamento {
     }
 }
 
-// Teste de funcionamento
+// Testezinho básico
 public class MainAtvAdapter2 {
     public static void main(String[] args) {
         System.out.println("=== Teste do sistema ===");
 
-        // Usando o adapter
+        // adapter funcionando
         ProcessadorPagamento processador = new AdaptadorPagamento();
 
         // Testes
@@ -45,7 +45,7 @@ public class MainAtvAdapter2 {
         System.out.println("\n3. Pagamento de R$ 1234,56:");
         processador.processarPagamento(1234.56);
 
-        // Teste com o sistema legado diretamente
+        // Teste com o sistema legado diretão
         SistemaPagamentoLegado legado = new SistemaPagamentoLegado();
         System.out.println("\nSistema legado direto:");
         legado.efetuarPagamento("100,00");

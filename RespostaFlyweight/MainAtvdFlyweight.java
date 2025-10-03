@@ -38,21 +38,21 @@ class CartaFactory {
     }
 }
 
-// Classe Principal
+// Classe principal de teste
 public class MainAtvdFlyweight {
     public static void main(String[] args) {
         
-        Carta c1 = CartaFactory.getCarta("Bola de fogo", 35, "Causa dano mágico");
+        Carta c1 = CartaFactory.getCarta("Bola de gelin", 25, "Causa dano mágico");
         Carta c2 = CartaFactory.getCarta("Curar", 10, "Recupera vida"); 
-        Carta c3 = CartaFactory.getCarta("Ataque", 20, "Causa dano físico");
+        Carta c3 = CartaFactory.getCarta("Ataque", 15, "Causa dano físico");
         
         c1.exibir(1);
         c2.exibir(2);
         c3.exibir(3);
         
-        // DEMONSTRAÇÃO DO FLYWEIGHT: Reutilizando cartas existentes
+        // Demonstrando o flyweight reutilizando as cartas
         System.out.println("\n=== REUTILIZANDO CARTAS (FLYWEIGHT) ===");
-        Carta c4 = CartaFactory.getCarta("Bola de fogo", 35, "Causa dano mágico"); // Reutiliza c1
+        Carta c4 = CartaFactory.getCarta("Bola de gelin", 25, "Causa dano mágico"); // Reutiliza c1
         Carta c5 = CartaFactory.getCarta("Curar", 10, "Recupera vida"); // Reutiliza c2
         
         c4.exibir(4);

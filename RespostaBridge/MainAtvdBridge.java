@@ -1,6 +1,6 @@
 package RespostaBridge;
 
-// ========== IMPLEMENTAÇÃO (CANAL) ==========
+// A implementação (CANAIS)
 interface Canal {
     void enviar(String mensagem);
 }
@@ -19,7 +19,7 @@ class SMS implements Canal {
     }
 }
 
-// ========== ABSTRAÇÃO (MENSAGEM) ==========
+// a abstração (MENSAGENS)
 abstract class Mensagem {
     protected Canal canal;
     
@@ -30,7 +30,7 @@ abstract class Mensagem {
     public abstract void enviar(String mensagem);
 }
 
-// ========== ABSTRAÇÃO REFINADA ==========
+// a abstração refinada (TIPOS DE MENSAGENS)
 class MensagemUrgente extends Mensagem {
     
     public MensagemUrgente(Canal canal) {
@@ -39,7 +39,7 @@ class MensagemUrgente extends Mensagem {
     
     @Override
     public void enviar(String mensagem) {
-        // Adiciona formatação especial para mensagem urgente
+        // Colocando formataçao especial para mensagens urgentes 
         String mensagemFormatada = "-> URGENTE: " + mensagem + " <-";
         canal.enviar(mensagemFormatada);
     }
@@ -53,40 +53,40 @@ class MensagemNormal extends Mensagem {
     
     @Override
     public void enviar(String mensagem) {
-        // Envia a mensagem sem formatação especial
+        // Mensagem sem formataçao especial
         canal.enviar(mensagem);
     }
 }
 
-// ========== CLASSE PRINCIPAL ==========
+// Classe principal de teste
 public class MainAtvdBridge {
     public static void main(String[] args) {
-        // Criando diferentes combinações usando Bridge
+        // criando várias combinações de mensagens e canais com o BRIDGE
         
-        // Mensagem urgente por Email
-        Mensagem mensagem1 = new MensagemUrgente(new Email());
+        // Mensagem urgente por Email!!!!
+        Mensagem mensagemA = new MensagemUrgente(new Email());
         
         // Mensagem urgente por SMS
-        Mensagem mensagem2 = new MensagemUrgente(new SMS());
+        Mensagem mensagemB = new MensagemUrgente(new SMS());
         
         // Mensagem normal por Email
-        Mensagem mensagem3 = new MensagemNormal(new Email());
+        Mensagem mensagemC = new MensagemNormal(new Email());
         
         // Mensagem normal por SMS
-        Mensagem mensagem4 = new MensagemNormal(new SMS());
+        Mensagem mensagemD = new MensagemNormal(new SMS());
         
-        System.out.println("=== SISTEMA DE MENSAGENS COM BRIDGE ===\n");
+        System.out.println(" mensagens com o bridge \n");
         
         // Testando todas as combinações
-        mensagem1.enviar("Reunião cancelada!");
-        mensagem2.enviar("Projeto atrasado!");
-        mensagem3.enviar("Lembrete: Pagamento em dia");
-        mensagem4.enviar("Código de verificação: 123456");
+        mensagemA.enviar("Reunião cabo meu povo, tem mais não!");
+        mensagemB.enviar("Tao devendo projeto ae né?");
+        mensagemC.enviar("Lembrendo: tem q pagar a conta!");
+        mensagemD.enviar("Código pra botar lá : 5B75C4O3PY93");
         
-        System.out.println("\n=== DEMONSTRANDO FLEXIBILIDADE ===");
+        System.out.println("\n mostrando que é flexivel ");
         
         // Mesma mensagem, diferentes canais
-        String mesmaMensagem = "Alerta do sistema";
+        String mesmaMensagem = "ALERTA!!";
         Mensagem urgenteEmail = new MensagemUrgente(new Email());
         Mensagem urgenteSMS = new MensagemUrgente(new SMS());
         Mensagem normalEmail = new MensagemNormal(new Email());

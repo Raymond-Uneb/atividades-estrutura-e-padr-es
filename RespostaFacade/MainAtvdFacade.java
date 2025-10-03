@@ -1,26 +1,26 @@
 package RespostaFacade;
 
-// ========== SUBSISTEMAS COMPLEXOS ==========
+// Subsistemas complexos do jogo
 
 class Mapa {
     public void carregarMapa() {
-        System.out.println("Mapa carregado com sucesso.");
+        System.out.println("Mapa pronto pra jogar!");
     }
 }
 
 class Inventario {
     public void adicionarItensIniciais() {
-        System.out.println("Itens iniciais adicionados ao inventário.");
+        System.out.println("Itens iniciais adicionados ao inventário");
     }
 }
 
 class Combate {
     public void ativar() {
-        System.out.println("Sistema de combate ativado.");
+        System.out.println("Combate ativado...");
     }
 }
 
-// ========== FACADE (INTERFACE SIMPLIFICADA) ==========
+// facade simplificando a interação com os subsistemas
 
 class JogoFacade {
     private Mapa mapa;
@@ -37,11 +37,11 @@ class JogoFacade {
         mapa.carregarMapa();
         inventario.adicionarItensIniciais();
         combate.ativar();
-        System.out.println("Jogo iniciado! Boa aventura");
+        System.out.println("Que os jogos comecem >:)");
     }
 }
 
-// ========== CLASSE PRINCIPAL ==========
+// classe principal de teste
 
 public class MainAtvdFacade {
     public static void main(String[] args) {
